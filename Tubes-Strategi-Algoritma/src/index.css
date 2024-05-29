@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: OnestFont;
+  src: url(Onest-VariableFont_wght.ttf);
+}
+
+:root {
+  font-family: OnestFont, sans-serif;
+  color: white;
+}
+
+.body-landing{
+  background: url("/src/assets/bg51.jpg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.body-shelter{
+  background: url("/src/assets/bg101.jpg"); 
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.body-jarak{
+  background: url("/src/assets/bg101.jpg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.body-waktu{
+  background: url("/src/assets/bg101.jpg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.body-data{
+  background: url("/src/assets/bg81.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.body-result{
+  background: url("/src/assets/bg91.jpg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
