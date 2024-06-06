@@ -14,7 +14,7 @@ function App() {
   const [data, setData] = useState(initialData); // Use initialData as the initial state
   const [currentEntry, setCurrentEntry] = useState({
     date: "",
-    shelterojek: "",
+    shelter: "",
     distance: "",
     duration: "",
   });
@@ -29,7 +29,7 @@ function App() {
 
     if (
       currentEntry.date.trim() !== "" &&
-      currentEntry.shelterojek.trim() !== "" &&
+      currentEntry.shelter.trim() !== "" &&
       !isNaN(distanceInt) &&
       !isNaN(durationInt)
     ) {
@@ -41,9 +41,7 @@ function App() {
           duration: durationInt,
         },
       ]);
-      setCurrentEntry({ date: "", shelterojek: "", distance: "", duration: "" });
-    } else {
-      alert("Please fill in all fields with valid numbers.");
+      setCurrentEntry({ date: "", shelter: "", distance: "", duration: "" });
     }
   };
 
@@ -56,7 +54,7 @@ function App() {
         <Route path="/inputwaktu" element={<InputWaktu updateEntry={updateEntry} />} />
         <Route path="/showdata" element={<ShowData data={data} />} />
         <Route path="/result" element={<Result data={data} />} />
-        <Route path="/aboutus" element={<AboutUs data={data} />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
     </Router>
   );

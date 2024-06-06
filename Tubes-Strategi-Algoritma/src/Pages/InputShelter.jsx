@@ -23,8 +23,7 @@ const InputShelter = ({ updateEntry }) => {
             <button className="btn bg-[#cc0000] text-white hover:bg-white hover:text-[#cc0000] border-none px-[30px] sm:px-[50px]" onClick={() => handleSelectTime("B")}>
               B
             </button>
-            <button
-              className="btn bg-[#cc0000] text-white hover:bg-white hover:text-[#cc0000] border-none px-[30px] sm:px-[50px]" onClick={() => handleSelectTime("C")}>
+            <button className="btn bg-[#cc0000] text-white hover:bg-white hover:text-[#cc0000] border-none px-[30px] sm:px-[50px]" onClick={() => handleSelectTime("C")}>
               C
             </button>
           </div>
