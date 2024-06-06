@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Result = ({ data }) => {
   const [greedyResult, setGreedyResult] = useState(null);
   const [bruteForceResult, setBruteForceResult] = useState(null);
   const [greedyExecutionTime, setGreedyExecutionTime] = useState(null);
   const [bruteForceExecutionTime, setBruteForceExecutionTime] = useState(null);
+  const navigate = useNavigate();
 
+  // Brute force algorithm
   function bruteForceOpt(ojekan) {
     let best = ojekan[0];
     let bestPace = ojekan[0].distance / ojekan[0].duration;
@@ -13,7 +16,7 @@ const Result = ({ data }) => {
     for (let ojek of ojekan) {
       let currentPace = ojek.distance / ojek.duration;
       if (currentPace > bestPace) {
-        best = run;
+        best = ojek;
         bestPace = currentPace;
       }
     }
@@ -21,10 +24,11 @@ const Result = ({ data }) => {
     return best;
   }
 
+  // Greedy algorithm
   function greedyOpt(ojekan) {
     let best = ojekan[0];
     let bestPace = ojekan[0].distance / ojekan[0].duration;
-  
+
     for (let i = 1; i < ojekan.length; i++) {
       let currentPace = ojekan[i].distance / ojekan[i].duration;
       if (currentPace > bestPace) {
@@ -32,10 +36,10 @@ const Result = ({ data }) => {
         bestPace = currentPace;
       }
     }
-  
+
     return best;
   }
-/*
+
   useEffect(() => {
     if (data.length > 0) {
       const startTimeGreedy = performance.now();
@@ -57,7 +61,6 @@ const Result = ({ data }) => {
       });
     }
   }, [data]);
-*/
 
   return (
     <div className="body-result px-[35px]">
@@ -71,9 +74,9 @@ const Result = ({ data }) => {
               {bruteForceResult && (
                 <>
                   <h2 className="mt-[40px] md:text-[20px]">Shelter: {bruteForceResult.shelter}</h2>
-                  <h2 className="md:text-[20px]">Jarak : {bruteForceResult.distance}Km</h2>
-                  <h2 className="md:text-[20px]">Waktu : {bruteForceResult.duration}Menit</h2>
-                  <h2 className="mt-[20px] md:mt-[40px] md:text-[20px]">Execution Time : {bruteForceExecutionTime}ms</h2>
+                  <h2 className="md:text-[20px]">Jarak : {bruteForceResult.distance} Km</h2>
+                  <h2 className="md:text-[20px]">Waktu : {bruteForceResult.duration} Menit</h2>
+                  <h2 className="mt-[20px] md:mt-[40px] md:text-[20px]">Execution Time : {bruteForceExecutionTime} ms</h2>
                 </>
               )}
             </div>
@@ -83,9 +86,9 @@ const Result = ({ data }) => {
               {greedyResult && (
                 <>
                   <h2 className="mt-[40px] md:text-[20px]">Shelter: {greedyResult.shelter}</h2>
-                  <h2 className="md:text-[20px]">Jarak : {greedyResult.distance}Km</h2>
-                  <h2 className="md:text-[20px]">Waktu : {greedyResult.duration}Menit</h2>
-                  <h2 className="mt-[20px] md:mt-[40px] md:text-[20px]">Execution Time : {greedyExecutionTime}ms</h2>
+                  <h2 className="md:text-[20px]">Jarak : {greedyResult.distance} Km</h2>
+                  <h2 className="md:text-[20px]">Waktu : {greedyResult.duration} Menit</h2>
+                  <h2 className="mt-[20px] md:mt-[40px] md:text-[20px]">Execution Time : {greedyExecutionTime} ms</h2>
                 </>
               )}
             </div>

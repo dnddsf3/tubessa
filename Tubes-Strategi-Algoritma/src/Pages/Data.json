@@ -16,5 +16,107 @@
     "shelter": "C",
     "distance": 21,
     "duration": 25
+  },
+  {
+    "date": "Selasa, 4 Juni 2024",
+    "shelter": "A",
+    "distance": 8,
+    "duration": 14
+  },
+  {
+    "date": "Rabu, 5 Juni 2024",
+    "shelter": "B",
+    "distance": 15,
+    "duration": 22
+  },
+  {
+    "date": "Kamis, 6 Juni 2024",
+    "shelter": "C",
+    "distance": 18,
+    "duration": 24
+  },
+  {
+    "date": "Jumat, 7 Juni 2024",
+    "shelter": "A",
+    "distance": 10,
+    "duration": 16
+  },
+  {
+    "date": "Sabtu, 8 Juni 2024",
+    "shelter": "B",
+    "distance": 17,
+    "duration": 23
+  },
+  {
+    "date": "Minggu, 9 Juni 2024",
+    "shelter": "C",
+    "distance": 12,
+    "duration": 18
+  },
+  {
+    "date": "Senin, 10 Juni 2024",
+    "shelter": "A",
+    "distance": 11,
+    "duration": 17
+  },
+  {
+    "date": "Selasa, 11 Juni 2024",
+    "shelter": "B",
+    "distance": 13,
+    "duration": 19
+  },
+  {
+    "date": "Rabu, 12 Juni 2024",
+    "shelter": "C",
+    "distance": 16,
+    "duration": 21
+  },
+  {
+    "date": "Kamis, 13 Juni 2024",
+    "shelter": "A",
+    "distance": 14,
+    "duration": 20
+  },
+  {
+    "date": "Jumat, 14 Juni 2024",
+    "shelter": "B",
+    "distance": 19,
+    "duration": 25
+  },
+  {
+    "date": "Sabtu, 15 Juni 2024",
+    "shelter": "C",
+    "distance": 20,
+    "duration": 26
+  },
+  {
+    "date": "Minggu, 16 Juni 2024",
+    "shelter": "A",
+    "distance": 7,
+    "duration": 13
+  },
+  {
+    "date": "Senin, 17 Juni 2024",
+    "shelter": "B",
+    "distance": 18,
+    "duration": 24
+  },
+  {
+    "date": "Selasa, 18 Juni 2024",
+    "shelter": "C",
+    "distance": 22,
+    "duration": 28
+  },
+  {
+    "date": "Rabu, 19 Juni 2024",
+    "shelter": "A",
+    "distance": 12,
+    "duration": 18
+  },
+  {
+    "date": "Kamis, 20 Juni 2024",
+    "shelter": "B",
+    "distance": 15,
+    "duration": 22
   }
 ]

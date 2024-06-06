@@ -7,7 +7,7 @@ const InputWaktu = ({ updateEntry }) => {
   const [duration, setDuration] = useState("");
 
   const handleSubmit = () => {
-    updateEntry("duration", `${duration} Menit`);
+    updateEntry("duration", `${duration}`);
     navigate("/");
   };
 

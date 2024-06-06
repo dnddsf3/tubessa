@@ -7,7 +7,7 @@ const InputJarak = ({ updateEntry }) => {
   const [distance, setDistance] = useState("");
 
   const handleNext = () => {
-    updateEntry("distance", `${distance} Km`);
+    updateEntry("distance", `${distance}`);
     navigate("/inputwaktu");
   };
 
