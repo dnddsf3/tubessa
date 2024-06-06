@@ -1,0 +1,20 @@
+[
+  {
+    "date": "Sabtu, 1 Juni 2024",
+    "shelter": "A",
+    "distance": 9,
+    "duration": 15
+  },
+  {
+    "date": "Minggu, 2 Juni 2024",
+    "shelter": "B",
+    "distance": 14,
+    "duration": 20
+  },
+  {
+    "date": "Senin, 3 Juni 2024",
+    "shelter": "C",
+    "distance": 21,
+    "duration": 25
+  }
+]

@@ -2,16 +2,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
 import "./App.css";
 import Landing from "./Pages/Landing";
-import InputWaktu from "./Pages/InputWaktu";
+import InputShelter from "./Pages/InputShelter";
 import InputJarak from "./Pages/InputJarak";
-import InputTempuh from "./Pages/InputTempuh";
+import InputWaktu from "./Pages/InputWaktu";
 import ShowData from "./Pages/ShowData";
 import Result from "./Pages/Result";
+import AboutUs from "./Pages/AboutUs";
 
 function App() {
   const [data, setData] = useState([]);
   const [currentEntry, setCurrentEntry] = useState({
     date: "",
+    shelter: "",
     time: "",
     distance: "",
     duration: "",
@@ -23,17 +25,18 @@ function App() {
 
   const addEntry = () => {
     setData((prevData) => [...prevData, currentEntry]);
-    setCurrentEntry({ date: "", time: "", distance: "", duration: "" });
+    setCurrentEntry({ date: "", shelter: "", time: "", distance: "", duration: "" });
   };
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Landing addEntry={addEntry} />} />
-        <Route path="/inputwaktu" element={<InputWaktu updateEntry={updateEntry} />} />
+        <Route path="/inputshelter" element={<InputShelter updateEntry={updateEntry} />} />
         <Route path="/inputjarak" element={<InputJarak updateEntry={updateEntry} />} />
-        <Route path="/inputtempuh" element={<InputTempuh updateEntry={updateEntry} />} />
+        <Route path="/inputwaktu" element={<InputWaktu updateEntry={updateEntry} />} />
         <Route path="/showdata" element={<ShowData data={data} />} />
         <Route path="/result" element={<Result />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
     </Router>
   );

@@ -59,3 +59,11 @@
   background-size: cover;
   height: 100vh;
 }
+
+.body-aboutus{
+  background: url("/src/assets/bg91.jpg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}

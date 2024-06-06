@@ -2,28 +2,39 @@ import React from "react";
 import "../../src/index.css";
 import { useNavigate } from "react-router-dom";
 
-const Landing = ({ addEntry }) => {
+const AboutUs = () => {
   const navigate = useNavigate();
 
   const handleShowData = () => {
-    addEntry();
     navigate("/showdata");
   };
 
-  const handleAboutUs = () => {
-    navigate("/aboutus");
+  const handleLanding = () => {
+    navigate("/");
   };
 
   return (
-    <div className="body-landing flex justify-center items-center min-h-screen relative"> {/* Flexbox container */}
+    <div className="body-aboutus flex justify-left items-center min-h-screen relative">
       <div className="text-center px-4 md:px-8">
-        <h2 className="font-bold text-2xl md:text-4xl">Metro Ride Optimizer</h2>
-        <h2 className="text-sm md:text-lg mt-4">
-          Solusi cerdas penempatan ojek online
+        <h2 className="font-bold text-2xl md:text-4xl">
+            Optimasi Penempatan Titik Pelayanan Ojek Online di Area Metropolitan
+        </h2>
+        <h2 className="text-left md:text-lg mt-4">
+            Tujuan website ini adalah untuk mencari pilihan shelter terbaik untuk pengemudi ojek agar mengurangi waktu tunggu pelanggan dan jarak yang harus ditempuh dan meningkatkan pendapatan pengemudi.
+        </h2>
+        <h2 className="font-bold text-2xl md:text-xl mt-8">
+            Developers
+        </h2>
+        <h2 className="text-left md:text-lg mt-4">
+            1. Dinda Desfira (1301223236)
+        </h2>
+        <h2 className="text-left md:text-lg mt-4">
+            2. Indah Pratiwi (1301223157)
         </h2>
         <div className="absolute top-0 right-0 mt-4 mr-4 flex items-center">
           <button
             className="btn bg-transparent text-white hover:bg-transparent hover:text-[#3399ff] border-none ml-4 md:text-lg md:px-8 md:rounded-1xl"
+            onClick={handleLanding}
           >
             Home
           </button>
@@ -35,17 +46,8 @@ const Landing = ({ addEntry }) => {
           </button>
           <button
             className="btn bg-transparent text-white hover:bg-transparent hover:text-[#3399ff] border-none ml-4 md:text-lg md:px-8 md:rounded-1xl"
-            onClick={handleAboutUs}
           >
             About Us
-          </button>
-        </div>
-        <div className="mt-8 flex flex-col md:flex-row md:gap-8 justify-center items-center">
-          <button
-            className="btn bg-[#4da6ff] text-white hover:bg-white hover:text-[#4da6ff] border-none mt-4 md:mt-0 md:text-lg md:px-8 md:rounded-1xl"
-            onClick={() => navigate("/inputshelter")}
-          >
-            Input Data Baru
           </button>
         </div>
       </div>
@@ -53,4 +55,4 @@ const Landing = ({ addEntry }) => {
   );
 };
 
-export default Landing;
+export default AboutUs;

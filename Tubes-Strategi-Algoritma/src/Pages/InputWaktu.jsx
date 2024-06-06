@@ -1,31 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../../src/index.css";
 
 const InputWaktu = ({ updateEntry }) => {
   const navigate = useNavigate();
+  const [duration, setDuration] = useState("");
 
-  const handleSelectTime = (shelter) => {
-    updateEntry({ shelter });
-    navigate("/inputjarak");
+  const handleSubmit = () => {
+    updateEntry("duration", `${duration} Menit`);
+    navigate("/");
   };
 
   return (
-    <div className="body-shelter px-[35px]">
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="px-[30px] py-[30px] flex flex-col items-center text-center">
-          <h2 className="text-[30px] font-bold sm:text-[40px]">Pilih Titik Shelter</h2>
-          <div className="mt-[40px]">
-            {["A", "B", "C"].map((shelter) => (
-              <button
-                key={shelter}
-                className="btn bg-[#cc0000] text-white hover:bg-white hover:text-[#cc0000] border-none border-white px-[30px] mr-[40px] md:mr-[60px] md:px-[50px]"
-                onClick={() => handleSelectTime(shelter)}
-              >
-                {shelter}
-              </button>
-            ))}
-          </div>
+    <div className="body-waktu">
+      <div className="flex flex-col items-center justify-center min-h-screen gap-[30px] sm:gap-[40px]">
+        <h2 className="text-[25px] font-bold sm:text-[40px]">Masukan Waktu Tempuh</h2>
+        <div className="flex items-center border-b-2 w-[200px]">
+          <input
+            type="number"
+            value={duration}
+            onChange={(e) => setDuration(e.target.value)}
+            placeholder="Waktu"
+            className="bg-transparent focus:outline-none w-full text-[20px] sm:text-[30px]"
+          />
+          <h2 className="font-semibold text-[20px] sm:text-[30px]">Menit</h2>
         </div>
+        <button
+          className="btn text-white hover:bg-white bg-[#4da6ff] hover:text-[#4da6ff] border-0 px-[40px] sm:px-[50px] sm:text-[20px]"
+          onClick={() => document.getElementById("my_modal_5").showModal()}
+        >
+          Submit
+        </button>
+        <dialog id="my_modal_5" className="modal modal-center sm:modal-middle">
+          <div className="modal-box bg-white rounded-lg shadow-xl p-6 flex flex-col items-center text-center">
+            <h3 className="font-bold text-black text-lg">Data telah berhasil disimpan.</h3>
+            <p className="py-4 text-black">Lihat data di data perjalanan.</p>
+            <div className="modal-action">
+              <form method="dialog">
+                <button className="btn bg-[#41BE46] border-none text-white" onClick={handleSubmit}>
+                  OK
+                </button>
+              </form>
+            </div>
+          </div>
+        </dialog>
       </div>
     </div>
   );
