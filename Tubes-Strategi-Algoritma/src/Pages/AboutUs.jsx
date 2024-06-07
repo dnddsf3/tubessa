@@ -22,7 +22,7 @@ const AboutUs = () => {
           <div className="mt-[20px] md:mt-[40px] flex flex-col gap-[20px] md:gap-[40px] md:flex-row text-center">
             <div className="flex flex-col items-center border-2 backdrop-blur-md backdrop-filter px-[30px] py-[20px] md:px-[60px] md:py-[40px] rounded-xl">
               <h2 className="font-bold text-[20px] md:text-[30px]">Tujuan</h2>
-              <h2 className="md:text-[20px]">Website ini bertujuan untuk mencari pilihan shelter terbaik bagi pengemudi ojek. Hal ini bertujuan untuk mengurangi waktu tunggu pelanggan dan jarak yang harus ditempuh serta meningkatkan pendapatan pengemudi.</h2>
+              <h2 className="md:text-[20px]">Website ini bertujuan untuk mencari pilihan shelter terbaik bagi pengemudi ojek. Hal ini bertujuan untuk mengurangi waktu tunggu pelanggan dan jarak yang harus ditempuh pengemudi.</h2>
             </div>
             <div className="flex flex-col items-center border-2 backdrop-blur-md backdrop-filter px-[30px] py-[20px] md:px-[60px] md:py-[40px] rounded-xl">
               <h2 className="font-bold text-[20px] md:text-[30px]">Pengembang</h2>
