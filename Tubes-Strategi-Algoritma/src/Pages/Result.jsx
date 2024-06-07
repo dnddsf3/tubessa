@@ -1,64 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { bruteForce, greedy } from "../Utils/Algorithms";
 
 const Result = ({ data }) => {
-  const [greedyResult, setGreedyResult] = useState(null);
   const [bruteForceResult, setBruteForceResult] = useState(null);
-  const [greedyExecutionTime, setGreedyExecutionTime] = useState(null);
-  const [bruteForceExecutionTime, setBruteForceExecutionTime] = useState(null);
+  const [greedyResult, setGreedyResult] = useState(null);
   const navigate = useNavigate();
-
-  // Brute force algorithm
-  function bruteForceOpt(ojekan) {
-    let best = ojekan[0];
-    let bestPace = ojekan[0].distance / ojekan[0].duration;
-
-    for (let ojek of ojekan) {
-      let currentPace = ojek.distance / ojek.duration;
-      if (currentPace > bestPace) {
-        best = ojek;
-        bestPace = currentPace;
-      }
-    }
-
-    return best;
-  }
-
-  // Greedy algorithm
-  function greedyOpt(ojekan) {
-    let best = ojekan[0];
-    let bestPace = ojekan[0].distance / ojekan[0].duration;
-
-    for (let i = 1; i < ojekan.length; i++) {
-      let currentPace = ojekan[i].distance / ojekan[i].duration;
-      if (currentPace > bestPace) {
-        best = ojekan[i];
-        bestPace = currentPace;
-      }
-    }
-
-    return best;
-  }
 
   useEffect(() => {
     if (data.length > 0) {
-      const startTimeGreedy = performance.now();
-      const greedyPromise = new Promise((resolve) => {
-        resolve(greedyOpt(data));
-      });
+      // Hitung hasil menggunakan algoritma Brute Force
       const startTimeBruteForce = performance.now();
-      const bruteForcePromise = new Promise((resolve) => {
-        resolve(bruteForceOpt(data));
-      });
+      const bruteForceResult = bruteForce(data);
+      const endTimeBruteForce = performance.now();
+      const executionTimeBruteForce = (endTimeBruteForce - startTimeBruteForce).toFixed(6);
+      setBruteForceResult({ ...bruteForceResult, executionTime: executionTimeBruteForce });
 
-      Promise.all([greedyPromise, bruteForcePromise]).then(([greedyResult, bruteForceResult]) => {
-        const endTimeGreedy = performance.now();
-        const endTimeBruteForce = performance.now();
-        setGreedyExecutionTime((endTimeGreedy - startTimeGreedy).toFixed(6));
-        setBruteForceExecutionTime((endTimeBruteForce - startTimeBruteForce).toFixed(6));
-        setGreedyResult(greedyResult);
-        setBruteForceResult(bruteForceResult);
-      });
+      // Hitung hasil menggunakan algoritma Greedy
+      const startTimeGreedy = performance.now();
+      const greedyResult = greedy(data);
+      const endTimeGreedy = performance.now();
+      const executionTimeGreedy = (endTimeGreedy - startTimeGreedy).toFixed(6);
+      setGreedyResult({ ...greedyResult, executionTime: executionTimeGreedy });
     }
   }, [data]);
 
@@ -72,10 +35,8 @@ const Result = ({ data }) => {
               <h2 className="font-bold text-[20px] md:text-[30px]">Algoritma Brute Force</h2>
               {bruteForceResult && (
                 <>
-                  <h2 className="mt-[40px] md:text-[20px]">Shelter : {bruteForceResult.shelter}</h2>
-                  <h2 className="md:text-[20px]">Jarak : {bruteForceResult.distance} Km</h2>
-                  <h2 className="md:text-[20px]">Waktu : {bruteForceResult.duration} Menit</h2>
-                  <h2 className="mt-[20px] md:mt-[40px] md:text-[20px]">Hasil Kalkulasi : {bruteForceExecutionTime} ms</h2>
+                  <h2 className="mt-[40px] md:text-[20px]">Shelter Terbaik: {bruteForceResult.bestShelterByDensity}</h2>
+                  <h2 className="md:text-[20px]">Waktu Eksekusi: {bruteForceResult.executionTime} ms</h2>
                 </>
               )}
             </div>
@@ -83,10 +44,10 @@ const Result = ({ data }) => {
               <h2 className="font-bold text-[20px] md:text-[30px]">Algoritma Greedy</h2>
               {greedyResult && (
                 <>
-                  <h2 className="mt-[40px] md:text-[20px]">Shelter : {greedyResult.shelter}</h2>
-                  <h2 className="md:text-[20px]">Jarak : {greedyResult.distance} Km</h2>
-                  <h2 className="md:text-[20px]">Waktu : {greedyResult.duration} Menit</h2>
-                  <h2 className="mt-[20px] md:mt-[40px] md:text-[20px]">Hasil Kalkulasi : {greedyExecutionTime} ms</h2>
+                  <h2 className="mt-[40px] md:text-[20px]">Shelter Terbaik Berdasarkan Berat: {greedyResult.bestShelterByWeight}</h2>
+                  <h2 className="md:text-[20px]">Shelter Terbaik Berdasarkan Profit: {greedyResult.bestShelterByProfit}</h2>
+                  <h2 className="md:text-[20px]">Shelter Terbaik Berdasarkan Density: {greedyResult.bestShelterByDensity}</h2>
+                  <h2 className="md:text-[20px]">Waktu Eksekusi: {greedyResult.executionTime} ms</h2>
                 </>
               )}
             </div>
